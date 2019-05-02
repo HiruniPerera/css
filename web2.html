@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;
+font-family: Verdana, Geneva, Tahoma, sans-serif}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(9, 35, 82);
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 19px 49px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+
+}
+
+
+{
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+  <div class="topnav">
+    <a class="active" href="#dinning">Dinning</a>
+    <a href="#weddings">Weddings</a>
+    <a href="#accomodations">Accomodations</a>
+    <a href="#events and meetings">Events and Meetings</a>
+    <a href="#special offers">Special Offers</a>
+    <a href="#contact us">Contact Us</a>
+  </div>
+  
+  
+
+
+  <div class="container">
+    <div class="mySlides">
+      <div class="numbertext">1 / 6</div>
+      <img src="27.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">2 / 6</div>
+      <img src="Lobby.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">3 / 6</div>
+      <img src="8.jpg" style="width:100%">
+    </div>
+      
+    <div class="mySlides">
+      <div class="numbertext">4 / 6</div>
+      <img src="16.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">5 / 6</div>
+      <img src="14.jpg" style="width:100%">
+    </div>
+      
+    <div class="mySlides">
+      <div class="numbertext">6 / 6</div>
+      <img src="7.jpg" style="width:100%">
+    </div>
+      
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="27.jpg" style="width:100%;height:200px" onclick="currentSlide(1)" alt="Front view">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="Lobby.jpg" style="width:100%;height:200px" onclick="currentSlide(2)" alt="Lobby">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="8.jpg" style="width:100%;height:200px" onclick="currentSlide(3)" alt="Special Events">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="16.jpg" style="width:100%;height:200px" onclick="currentSlide(4)" alt="Accomodation">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="14.jpg" style="width:100%;height:200px" onclick="currentSlide(5)" alt="Dinning">
+      </div>    
+      <div class="column">
+        <img class="demo cursor" src="7.jpg" style="width:100%;height:200px" onclick="currentSlide(6)" alt="Weddings">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+  </script>
+     <hr> 
+    <h2 style="text-align: center;font-size: 50px;">HOTEL ANATHAYA</h2>
+    <h3 style="text-align: center;font-size: 25px;">Colombo,Sri Lanka</h2>
+    <hr>
+     
+          <br>
+      <p style="text-align: center;"> <i>The finest star class hotel in Sri Lanka with the best of dinning, accommodation and entertainment facilities.<br> This 450 roomed beauty is located facing the foaming ripples of the Indian Ocean and remains to be one of the best hotels in Sri Lanka.<br> Step-in to be lost in unearthly cuisines, cosy hideouts, heavenly surrounding and the best of services, which other hotels in Sri Lanka could not offer.<br> Galadari Hotel Sri Lanka; one of the finest hotels in Sri Lanka is not only the best place to relax, eat and indulge, but is also the finest place to celebrate. Come! Delight & breathe the air of luxury at the heart of Colombo.</i></p>
+  <br>
+  <br>
+  <br>
+     
+    </div>
+  
+  </body>
+  </html>
+  
